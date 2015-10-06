@@ -1,26 +1,26 @@
 {
-  "name": "run-async",
+  "name": "run-async-nodeback",
   "version": "0.1.0",
-  "description": "Utility method to run function either synchronously or asynchronously using the common `this.async()` style.",
+  "description": "Like `run-async`, but uses nodes standard two arg callback `callback(err, result)`",
   "main": "index.js",
   "scripts": {
     "test": "mocha -R spec"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/SBoudrias/run-async"
+    "url": "git://github.com/jamestalmage/run-async"
   },
   "keywords": [
     "flow",
     "flow-control",
     "async"
   ],
-  "author": "Simon Boudrias <admin@simonboudrias.com>",
+  "author": "James Talmage <james@talmage.io>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/SBoudrias/run-async/issues"
+    "url": "https://github.com/jamestalmage/run-async/issues"
   },
-  "homepage": "https://github.com/SBoudrias/run-async",
+  "homepage": "https://github.com/jamestalmage/run-async",
   "dependencies": {
     "once": "^1.3.0"
   },

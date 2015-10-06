@@ -19,19 +19,29 @@ module.exports.dezalgo = function (func, cb) {
 };
 
 function runAsync (func, cb, args, dezalgo) {
+  cb = once(cb);
   var async = false;
-  var answer = func.apply({
-    async: function () {
-      async = true;
-      return once(cb);
+  try {
+    var answer = func.apply({
+      async: function () {
+        async = true;
+        return cb;
+      }
+    }, args );
+  } catch (e) {
+    if (dezalgo) {
+      process.nextTick(cb.bind(null, e));
+    } else {
+      cb(e);
     }
-  }, args );
+    return;
+  }
 
   if (!async) {
     if (dezalgo) {
-      process.nextTick(cb.bind(null, answer));
+      process.nextTick(cb.bind(null, null, answer));
     } else {
-      cb(answer);
+      cb(null, answer);
     }
   }
 }
