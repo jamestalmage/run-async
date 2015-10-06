@@ -7,6 +7,8 @@ Utility method to run function either synchronously or asynchronously using the 
 
 This is useful for library author accepting sync or async functions as parameter. `runAsync` will always run them as async method, and normalize the function handling.
 
+`runAsync.dezalgo` ensures your callback is always called asynchronously.
+
 Installation
 =========
 
@@ -41,6 +43,11 @@ var syncFn = function (a) {
 runAsync(syncFn, function (answer) {
   console.log(answer); // 'running: sync'
 }, 'sync');
+
+
+runAzync.dezalgo(syncFun, function (answer) {
+  console.log(answer); // 'running: dezalgo'
+}, 'dezalgo');
 ```
 
 Licence

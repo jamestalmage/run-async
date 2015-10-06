@@ -48,4 +48,19 @@ describe('runAsync', function () {
       done();
     });
   });
+
+  it('dezalgo ensures callback is called async', function(done) {
+    var ranAsync = false;
+    var syncFn = function() {
+      return 'dezalgo';
+    };
+    var cb = function(result) {
+      assert.strictEqual(result, 'dezalgo');
+      assert.strictEqual(ranAsync, true);
+      done();
+    };
+    runAsync.dezalgo(syncFn, cb);
+    // should be set to true before the assertion runs
+    ranAsync = true;
+  });
 });

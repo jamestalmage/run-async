@@ -11,15 +11,27 @@ var once = require('once');
  */
 
 module.exports = function (func, cb) {
+  runAsync(func, cb, Array.prototype.slice.call(arguments, 2));
+};
+
+module.exports.dezalgo = function (func, cb) {
+  runAsync(func, cb, Array.prototype.slice.call(arguments, 2), true);
+};
+
+function runAsync (func, cb, args, dezalgo) {
   var async = false;
   var answer = func.apply({
     async: function () {
       async = true;
       return once(cb);
     }
-  }, Array.prototype.slice.call(arguments, 2) );
+  }, args );
 
   if (!async) {
-    cb(answer);
+    if (dezalgo) {
+      process.nextTick(cb.bind(null, answer));
+    } else {
+      cb(answer);
+    }
   }
-};
+}
