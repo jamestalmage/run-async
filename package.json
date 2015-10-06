@@ -1,6 +1,6 @@
 {
   "name": "run-async-nodeback",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Like `run-async`, but uses nodes standard two arg callback `callback(err, result)`",
   "main": "index.js",
   "scripts": {
