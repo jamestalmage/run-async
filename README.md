@@ -3,7 +3,7 @@ Run Async Nodeback
 
 [![npm](https://badge.fury.io/js/run-async-nodeback.svg)](http://badge.fury.io/js/run-async-nodeback) [![tests](https://travis-ci.org/jamestalmage/run-async.svg?branch=nodeback)](http://travis-ci.org/jamestalmage/run-async) [![dependencies](https://david-dm.org/jamestalmage/run-async.svg?theme=shields.io)](https://david-dm.org/jamestalmage/run-async)
 
-Fork of `run-async` that uses `nodeback` style callbacks (i.e. `callback(err, result)`);
+Fork of [`run-async`](https://www.npmjs.com/package/run-async) that uses `nodeback` style callbacks (i.e. `callback(err, result)`);
 
 Utility method to run function either synchronously or asynchronously using the common `this.async()` style.
 
